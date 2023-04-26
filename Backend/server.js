@@ -16,8 +16,6 @@ app.use('/api', require('./src/controllers/api'));
 app.use('/auth', require('./src/controllers/auth'));
 app.use('/admin',verifyAdmin ,require('./src/controllers/admin'));
 
-console.log(process.env.AUTHX_URL)
-
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
