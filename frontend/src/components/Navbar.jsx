@@ -54,8 +54,13 @@ const Navbar = ({admin,setAdmin})=>{
                         border: "1px solid " + cool_600
                     }}>Logout</div></a>}
             </div>
-            {!admin &&<Button onClick={()=>setOpened(true)}>Admin</Button>}
-            {admin && <Button onClick={()=> {localStorage.removeItem("admin"); setAdmin(false)}}>Admin Logout</Button>}
+            <div style={{
+                marginRight: "20px"
+            }}>
+                {!admin &&<Button onClick={()=>setOpened(true)}>Admin</Button>}
+                {admin && <Button onClick={()=> {localStorage.removeItem("admin"); setAdmin(false)}}>Admin Logout</Button>}
+
+            </div>
         </div>
         <AdminModal opened={opened} setOpened={setOpened} setAdmin={setAdmin}/>
         </>

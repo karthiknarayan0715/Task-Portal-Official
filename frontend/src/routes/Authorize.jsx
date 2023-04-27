@@ -26,7 +26,7 @@ const Authorize = ()=>{
         const response = await res.json()
 
         if(res.status == 200){
-            cookies.set(response.jwt_token)
+            cookies.set("jwt", response.jwt_token)
             navigate("/home")
         }
     }   

@@ -20,6 +20,7 @@ taskRouter.use(verifyAdmin);
 taskRouter.post("/create", async (req, res)=>{
     try{
         const task = req.body;
+        console.log(req.body)
   
         const new_task = await Task.create({
             name: task.name,
