@@ -12,7 +12,7 @@ const initApp = async ()=>{
                 name:name,
                 scopes:scopes,
                 description:" ",
-                redirectUri:" "
+                redirectUri:process.env.FRONTEND_URL
             })
             await AppData.create({
                 name:name,
@@ -28,7 +28,6 @@ const initApp = async ()=>{
     catch(err)
     {
         console.log("CLIENT APP INIT FAILED")
-        console.log(err);
     }    
 }
 module.exports = initApp;
