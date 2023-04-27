@@ -1,0 +1,18 @@
+.authXlogin{
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.authXlogin:hover{
+  opacity: 0.8;
+}
+a{
+  text-decoration: none;
+}
+.x{
+  display: inline;
+  margin-left: 10px;
+  font-size: 20px;
+}
