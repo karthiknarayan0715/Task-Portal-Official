@@ -26,10 +26,11 @@ authRouter.post("/login", getAppData, async (req, res)=>{
         let user = resData.data.data;
 
         let foundUser = await Employee.findOne({email : user.EMAIL});
-        if(foundUser != null)
+        if(foundUser == null)
         {
-            await Employee.create({name:user.NAME,email:user.EMAIL});
+            foundUser = await Employee.create({name:user.NAME,email:user.EMAIL});
         }
+        console.log(foundUser)
         let jwt_token = await createJWT(foundUser);
 
         return res.status(200).json({message: "Login Successfull",jwt_token})

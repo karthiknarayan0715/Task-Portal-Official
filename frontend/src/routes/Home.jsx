@@ -3,9 +3,7 @@ import Box from '../components/Box';
 import '../styles/Styles.css';
 import "../themes/main_theme"
 import Cookies from "universal-cookie"
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Form from "../components/Forms";
 import {cool_50} from "../themes/main_theme"
 
 const Home = ()=>{
@@ -24,7 +22,7 @@ const Home = ()=>{
                 "Content-type": "application/json",
             },
         };
-        const res = await fetch(process.env.REACT_APP_SERVER_URL+"/api/appID")
+        const res = await fetch(process.env.REACT_APP_SERVER_URL+"/api/appID", req)
         const response = await res.json()
         
         console.log(response)

@@ -7,12 +7,17 @@ import {
 } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home from './routes/Home';
+import Authorize from './routes/Authorize';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "/authorize",
+    element: <Authorize />
   },
 ])
 
