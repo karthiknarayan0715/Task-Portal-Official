@@ -5,28 +5,18 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Navbar from './components/Navbar';
-import Home from './routes/Home';
-import Authorize from './routes/Authorize';
-import reportWebVitals from './reportWebVitals';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />
-  },
-  {
-    path: "/authorize",
-    element: <Authorize />
-  },
-])
+import reportWebVitals from './reportWebVitals';
+import { MantineProvider} from '@mantine/core';
+import App from './App';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Navbar />
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <MantineProvider >
+    <App/>
+  </MantineProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
