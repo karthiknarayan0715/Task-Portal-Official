@@ -8,6 +8,7 @@ import Authorize from './routes/Authorize';
 import Task from './routes/Task';
 import is_admin from "./helpers/is_admin";
 import { useEffect, useState } from "react";
+import Logout from "./routes/Logout";
 
 function App() {
   const [admin, setAdmin] = useState(is_admin);
@@ -26,6 +27,10 @@ function App() {
   {
     path: "/home",
     element: <Task admin={admin}/>
+  },
+  {
+    path: "/logout",
+    element: <Logout/>
   },
 ])} />
     

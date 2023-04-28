@@ -12,7 +12,7 @@ const initApp = async ()=>{
                 name:name,
                 scopes:scopes,
                 description:" ",
-                redirectUri:process.env.FRONTEND_URL
+                redirectUri:`${process.env.FRONTEND_URL}`
             })
             await AppData.create({
                 name:name,
@@ -27,6 +27,7 @@ const initApp = async ()=>{
     }
     catch(err)
     {
+        console.log(err)
         console.log("CLIENT APP INIT FAILED")
     }    
 }

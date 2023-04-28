@@ -57,12 +57,16 @@ const Task = ({admin})=>{
         setTasks(res.data.tasks)
 
     }
-    const AcceptTask = async (id)=>{
-        const admincode = localStorage.getItem("admin")
+    const AcceptTask = async (id,task)=>{
+        if(task.state != "OPEN") return
+        //const admincode = localStorage.getItem("admin")
         const token = cookies.get("jwt")
-        await axios.put(process.env.REACT_APP_SERVER_URL + "/api/tasks/" + id, {
-            headers: {admincode, token}
+
+        await axios.put(process.env.REACT_APP_SERVER_URL + "/api/employee/assign/" + id, {
+            token
         })
+        let res = await axios.get(process.env.REACT_APP_SERVER_URL+"/api/tasks/")
+        setTasks(res.data.tasks)
     }
 
     useEffect(()=>{
@@ -105,7 +109,7 @@ const Task = ({admin})=>{
             <div className="tasks" style={{
                 marginTop: "50px"
             }}>
-                {tasks && tasks.map((task)=>{return (<TaskComponent task={task} key={task._id} setRefresh={setRefresh} onDelete={()=>DeleteTask(task._id)} refresh={refresh} acceptTask={AcceptTask}/>)})}
+                {tasks && tasks.map((task)=>{return (<TaskComponent task={task} key={task._id} setRefresh={setRefresh} onDelete={()=>DeleteTask(task._id)} refresh={refresh} acceptTask={AcceptTask} admin={admin}/>)})}
             </div>
             </ div>
         </div>

@@ -3,8 +3,8 @@ import Cookies from "universal-cookie"
 const is_logged_in = ()=>{
     const cookies = new Cookies()
     const jwt = cookies.get("jwt")
-
-    return jwt != null
+    console.log(jwt != undefined)
+    return jwt != undefined
 }
 
 export default is_logged_in

@@ -15,7 +15,9 @@ const createJWT = async (user) => {
 const verifyJWT = (req, res, next) => {
   try {
     
-    const { token } = req.headers;
+    const token = req.body.token;
+
+    
     if (!token) {
       return res.status(400).json({ message: " No token" });
     }
@@ -27,13 +29,15 @@ const verifyJWT = (req, res, next) => {
           message: "An unexpected error has occured! Please login again.",
         });
       }
-      if (isNaN(decoded.email))
+
+      if (!(decoded.email))
         return res.status(400).json({ message: "Invalid token" });
       return next();
     });
 
     return null;
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: "Server Error. Try again later" });
   }
 };

@@ -5,6 +5,7 @@ import Text from "./Text"
 import { Button} from '@mantine/core';
 import AdminModal from "./AdminModal";
 import { useEffect, useState } from "react";
+import Logout from "../routes/Logout";
 
 
 const Navbar = ({admin,setAdmin})=>{
@@ -23,13 +24,13 @@ const Navbar = ({admin,setAdmin})=>{
                 color: cool_50,
                 fontSize: "32px",
                 marginLeft: "20px"
-            }}><Text size="32px" weight="bold">AuthX</Text></div>
+            }}><Text size="32px" weight="bold">TASK PORTAL</Text></div>
             
             <div className="to_right" style={{
                 marginLeft: "auto",
                 marginRight: "30px"
             }}>
-                {is_logged_in() ?
+                {is_logged_in() &&
                     <a href="/logout"><div className="nav-button" style={{
                         width: "90px",
                         height: "40px",
@@ -40,19 +41,9 @@ const Navbar = ({admin,setAdmin})=>{
                         color: cool_50,
                         cursor: "pointer",
                         border: "1px solid " + cool_600
-                    }}>Logout</div></a>
-                    :
-                    <a href="/login"><div className="nav-button" style={{
-                        width: "90px",
-                        height: "40px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "40px",
-                        color: cool_50,
-                        cursor: "pointer",
-                        border: "1px solid " + cool_600
-                    }}>Logout</div></a>}
+                    }}
+                    >Logout</div></a>
+                }
             </div>
             <div style={{
                 marginRight: "20px"
